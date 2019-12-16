@@ -43,31 +43,6 @@ const pokedex = (state = initialState, { type, payload }) => {
       };
     }
 
-    case COACH_CREATE_INIT: {
-      return {
-        ...state,
-        error: '',
-        isLoading: true,
-      };
-    }
-
-    case COACH_CREATE_SUCCESS: {
-      return {
-        ...state,
-        data: [payload.data, ...state.data],
-        isLoading: false,
-        coachSelected: '',
-      };
-    }
-
-    case COACH_CREATE_ERROR: {
-      return {
-        ...state,
-        isLoading: false,
-        error: payload,
-      };
-    }
-
     case POKEDEX_SELECTED: {
 			return {
 				...state,

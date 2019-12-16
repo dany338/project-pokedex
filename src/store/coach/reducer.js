@@ -9,7 +9,16 @@ import {
 } from './types';
 
 const initialState = {
-  data: [],
+  data: [
+    {
+      _id: '',
+      username: 'dgallo',
+      first_name: 'Daniel Andres',
+      last_name: 'Gallo Garcia',
+      password: '123456',
+      confirm: '123456'
+    }
+  ],
   error: '',
   response: '',
   coachSelected: '',

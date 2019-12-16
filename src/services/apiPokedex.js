@@ -19,23 +19,37 @@ const fetchParams = (method, data = '') => {
   };
 };
 
-export const apiPoke = {
+export const apiPokedex = {
   getPokes: async () => {
     try {
       const response = await fetch(`${URL_API}${endpoints.poke.list}`, fetchParams('GET'));
-      if (typeof response.ok === 'undefined') {
-        console.log(response.status_message);
+      if (!response.ok || response.status === 403 || response.status === 404 || response.status === 500 ) {
+        return response.statusText;
       }
       const data = await response.json();
       if (typeof data.error !== 'undefined') {
-        console.log(data.error);
+        return data.error;
       }
       return data;
     } catch (error) {
-      console.error(error);
+      return error;
+    }
+  },
+  getById: async id => {
+    try {
+      const response = await fetch(`${URL_API}${endpoints.poke.getById}/${id}`, fetchParams('GET'));
+      if (!response.ok || response.status === 403 || response.status === 404 || response.status === 500 ) {
+        return response.statusText;
+      }
+      const data = await response.json();
+      if (typeof data.error !== 'undefined') {
+        return data.error;
+      }
+      return data;
+    } catch (error) {
       return error;
     }
   },
 };
 
-export default apiPoke;
+export default apiPokedex;

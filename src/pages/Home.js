@@ -8,8 +8,8 @@ import ErrorBoundary from '../components/ErrorBoundary';
 const Home = props => {
   return (
     <ErrorBoundary>
-      <Container>
-        ...Home
+      <Container className="home">
+        <div className="slider" />
       </Container>
     </ErrorBoundary>
   )

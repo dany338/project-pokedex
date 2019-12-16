@@ -1,5 +1,6 @@
 export default {
   poke: {
-    list: 'ability'
+    list: 'ability',
+    getById: 'ability',
   },
 };
